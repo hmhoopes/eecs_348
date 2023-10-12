@@ -17,26 +17,18 @@ void bubble_sort(int indices[], float list_comp[]){
 
 char months[12][30] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 int main(){
-    printf("Please enter filename: ");
-    char filename[20];
+    printf("Please enter sales for each month, starting from January: \n");
     float temp;
     float nums[12];
-    scanf("%s", filename);
-
-    FILE *in = fopen(filename, "r");
-    if (in == NULL){
-        printf("File doesn't exist");
-    }
-    else{
-        for (int i = 0; i < 12; i ++){
-            fscanf(in, "%f", &temp);
-            nums[i] = temp;
-        }
+    for (int i = 0; i < 12; i++){
+        scanf("%f", &nums[i]);
     }
 
     int minIndex = 0, maxIndex = 0;
     float min = 10000000.0, max = 0.0;
+    float average = 0.0;
     for (int i = 0; i < 12; i++){
+        average += nums[i];
         if (nums[i] < min){
             minIndex = i;
             min = nums[i];
@@ -46,6 +38,7 @@ int main(){
             max = nums[i];
         }
     }
+    average /= 12;
 
     printf("\nMonthly Sales Report for 2022\n");
     printf("%-15s\tSales\n", "Month");
@@ -56,6 +49,7 @@ int main(){
     printf("\nSales Summary: \n");
     printf("Minimum Sales:\t$%-.2f (%s)\n", min, months[minIndex]);
     printf("Maximum Sales:\t$%-.2f (%s)\n", max, months[maxIndex]);
+    printf("Average Sales:\t$%-.2f \n", average);
 
     printf("\nSales Summary: \n");
     for (int i = 0; i <= 6; i++){
@@ -77,7 +71,7 @@ int main(){
     printf("\nSales Report (Highest to Lowest)\n");
     printf("%-15s\tSales\n", "Month");
     for (int i = 11; i >= 0; i--){
-        printf("%-15s\t$%-.2f\n", months[indices[i]], nums[indices[i]]);
+        printf("%-15s\t$%-.2f\n", months[indices[i]], nums[i]);
     }
     return 0;
 }
