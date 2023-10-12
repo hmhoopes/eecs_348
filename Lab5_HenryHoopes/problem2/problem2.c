@@ -31,11 +31,16 @@ void find_combos(int target, int partial_combo[], int partialsum, int start){
 }
 
 int main(){
-    int partialsum[] = {0,0,0,0,0};
-    int score;
-    printf("Enter a score: ");
-    scanf("%d", &score);
-    printf("\n");
-    find_combos(score, partialsum, 0, 0);
+    while (1){
+        int partialsum[] = {0,0,0,0,0};
+        int score;
+        printf("Enter a score (a score of 0 or 1 will exit the program): ");
+        scanf("%d", &score);
+        if (score <= 1){
+            return 0;
+        }
+        printf("\n");
+        find_combos(score, partialsum, 0, 0);
+    }
     return 0;
 }
