@@ -2,7 +2,7 @@
 
 void bubble_sort(int indices[], float list_comp[]){
     for (int i = 0; i<12; i++){
-        for (int j = i; j < 12 - i - 1; j++){
+        for (int j = 0; j < 12 - i - 1; j++){
             if (list_comp[j] > list_comp[j+1]){
                 float temp = list_comp[j];
                 list_comp[j] = list_comp[j+1];
