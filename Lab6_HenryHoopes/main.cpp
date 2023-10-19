@@ -86,16 +86,19 @@ void multMatrix(int size, int m1[MaxSize][MaxSize], int m2[MaxSize][MaxSize]){
 
 int main(){
     string filename;
-    cout << "Enter a filename: ";
-    cin >> filename;
-    cout << "\n";
-
     ifstream file;
-    file.open(filename);
+    while(1){
+        cout << "Enter a filename: ";
+        cin >> filename;
+        cout << "\n";
+
+        file.open(filename);
+        if (file){break;}
+        else {cout<<"Please enter a valid filename.\n";}
+    }
     string line = "";
     getline(file, line);
     int size = stoi(line);
-
 
     int matrix1[MaxSize][MaxSize];
     int matrix2[MaxSize][MaxSize];
