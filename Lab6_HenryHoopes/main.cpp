@@ -1,32 +1,12 @@
 #include <iostream>
 #include <fstream>
+#include <cctype>
 #include <string>
 #include <iomanip>
 #include <cmath>
 using namespace std;
 
 const int MaxSize = 100;
- 
-int* strToArr(string line){
-    static int lineArr[100];
-    string currNum = "";
-    int itr = 0;
-    int spot = 0;
-
-    while (line[itr]){
-        currNum += line[itr];
-        if (line[itr] == ' '){
-            lineArr[spot] = stoi(currNum);
-            spot++;
-            currNum = "";
-        }
-        itr++;
-    }
-    lineArr[spot] = stoi(currNum);
-
-    return lineArr;
-}
-
 
 void printMatrix(int size, int matrix[MaxSize][MaxSize]){
     int maxDigits = 0;
@@ -97,28 +77,25 @@ int main(){
         else {cout<<"Please enter a valid filename.\n";}
     }
     string line = "";
-    getline(file, line);
-    int size = stoi(line);
+    int size;
+    file >> size;
 
     int matrix1[MaxSize][MaxSize];
     int matrix2[MaxSize][MaxSize];
     int* arrPtr;
 
     for (int i = 0; i < size; i++){
-        getline(file, line);
-        arrPtr = strToArr(line);
         for (int j = 0; j < size; j++){
-            matrix1[i][j] = arrPtr[j];
+            file >> matrix1[i][j];
         }
     }
 
     for (int i = 0; i < size; i++){
-        getline(file, line);
-        arrPtr = strToArr(line);
         for (int j = 0; j < size; j++){
-            matrix2[i][j] = arrPtr[j];
+            file >> matrix2[i][j];
         }
     }
+
     cout<<"Matrix A: \n";
     printMatrix(size, matrix1);
 
