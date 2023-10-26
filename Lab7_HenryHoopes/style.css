@@ -1,0 +1,32 @@
+body{
+	background-color: lightblue;
+
+}
+h1{
+	font-family: "Impact", sans-serif;
+}
+p{
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+#email{
+	color: blue;
+	font-family: "Impact", sans-serif;
+	text-decoration: underline;
+}
+#paragraph{
+	border-style: solid;
+	border-width: 10px;
+}
+table{
+	border-collapse: collapse;
+}
+th, td {
+	padding: 8px;
+	text-align: left;
+	border: 1px solid rgb(1,1,1);
+	
+}
+td:hover {background-color: rgb(202, 64, 22);}
+tr:hover {background-color: rgb(129, 194, 75);}
+p.description:hover{background-color: yellow;}
+
