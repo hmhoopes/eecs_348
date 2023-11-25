@@ -12,7 +12,7 @@ void printMatrix(int size, int matrix[MaxSize][MaxSize]){
     int maxDigits = 0;
     for (int i = 0; i < size; i++){
         for (int j = 0; j< size; j++){
-            int digits = (log10(matrix[i][j]));
+            int digits = log10(abs(matrix[i][j]))+1;
             digits++;
             if (digits> maxDigits){
                 maxDigits = digits;
