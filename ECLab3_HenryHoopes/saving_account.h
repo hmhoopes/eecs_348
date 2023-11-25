@@ -34,6 +34,7 @@ void SavingsAccount::withdraw(double amount){
 }
 
 SavingsAccount SavingsAccount::operator+( Account& a2){
+    //based on the canvas write up, this function transfers a fixed amount of $300.
     balance += 300;
     a2.balance -= 300;
     return SavingsAccount(acctNum, acctHolder, balance, rate);
